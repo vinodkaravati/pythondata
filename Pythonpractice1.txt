@@ -1,0 +1,107 @@
+I have  completed Python Exercises and going for Fundamentals of Data Structures and Algorithms .
+
+Please find the Below Exercises Code and Correct me if anything need to be modified.
+
+ 
+####################################################################
+
+##################################################
+#1.Program to find the maximum absolute difference between any 2 numbers in array of integers, ex: input: 1,2,5 output: 4 (1-5)
+ 
+def absdiff(x,y,z):
+  lst = [x,y,z]
+  return abs(min(lst) - max(lst))
+print absdiff(0,4,5)
+
+
+#################################################
+#2.Remove duplicates in an array which has increasing numbers like 1.2.2.3.3.3.4.5.6.6.7 and 1.2.2.2.2. => output - 1,2,3,4,5,6,7 and 1,2
+
+
+def remdup(lst1,lst2):
+  list1 = []
+  list2 = []
+  for ls in lst1 :
+    if ls not in list1:
+      list1.append(ls)
+  for lss in lst2:
+    if lss not in list2:
+      list2.append(lss)
+  print str(list1) + " and " + str(list2)
+lst1 = [1,2,2,3,3,3,4,5,6,6,7]
+lst2 = [1,2,2,2,2]
+remdup(lst1,lst2)
+  
+###########################################
+#3.Find pairs adding upto sum input = [1,2,4,5,6,7,8,9] input K =10 output = (4,6) (1,9), (3,7), (2,8)
+
+lsts = [1,2,4,5,6,7,8,9]
+k = 10
+for i in range(len(lsts)):
+  for v in range(len(lsts)):
+    if ((lsts[i] + lsts[v]) == k ):
+                  out = list(str(lsts[i]) +  str(lsts[v]))
+                  print "[%s]" %(", ".join(out))     
+  
+#############################################
+#4.Move zeroes to the end of the array, input = [ 2,0,4,6,12,100,0,34,54] output = [ 2,4,6,12,100,34,54,0,0]
+input = [ 2,0,4,6,12,100,0,34,54]
+#input.sort()
+#print input[::-1]
+#i tried with swap and insert options but not working out so finally i wnet to trough below code and get the required oputput.
+out = []
+for i in input:
+  if i != 0:
+    out.append(i)
+for c in input:
+  if c == 0:
+    out.append(c)
+print out
+
+###########################################
+#5. Remove repeating chars in a string and output the count of deleted chars input = engineerings ouptut = "s" count= 11 
+
+inpu = "engineerings"
+outpu = []
+counts = 0
+for C in inpu :
+  count1 = inpu.count(C)
+  if count1 > 1 :
+    counts += 1
+  else :
+    outpu.append(C)
+   
+print outpu
+print counts
+
+######################################
+#6. Generate multiple strings from an array of strings such that atleast one char(sequence) is present from all the strings in the output strings, ex: [‘abcd’,’xyz’,’jk’] => ‘axj’,’axk’,’ayj’,’ayk’,’bxj’,’bxk’,’byj’,’byk’,’abxj’,’abxk’,’abyj’,’abyk’,’abxyj’,’abxyk’,’abxyjk’, ‘axyj’,’axyk’,’axjk’,’ayjk’,’bxjk’,’byjk’,’bxyj’,’bxyk’,]
+ 
+stril = ["abcd", "xyz", "jk"]
+res = []
+for i in stril:
+  for j in i:
+    if i == stril[0]:
+      for k in stril[1]:
+        for l in stril[2]:
+          res1 = j,k,l
+          res.append("".join(res1))
+         
+    if i == stril[1]:
+      for m in stril[0]:
+        for n in stril[2]:
+          res2 = j,m,n
+          res.append("".join(res2))
+    if i == stril[2]:
+      for o in stril[0]:
+        for p in stril[1]:
+          res3 = j,o,p
+          res.append("".join(res3))
+         
+print res
+print str(len(res)) + " words can be form by given list"
+
+
+###############################################################
+
+
